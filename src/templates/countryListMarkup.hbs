@@ -1,0 +1,8 @@
+{{!-- {{#each flags}}
+<img src="{{this}}" alt="flag" width="42">
+{{/each}} --}}
+
+
+{{#each this}}
+<li class="country-list__item"><img src="{{this.[1]}}" alt="flag" width="32">{{this.[0]}}</li>
+{{/each}}

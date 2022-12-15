@@ -1,0 +1,10 @@
+<img src="{{flags.png}}" alt="flag" class="img__flag" width="40">
+<h1>{{name.official}}</h1>
+<p class = "c_capital"><span>Capital:</span> {{capital}}</p>
+<p class="c_population"><span>Population:</span>{{population}}</p>
+<p class="c_languages"><span>Languages:</span>
+
+{{#each languages}}
+{{this}}
+{{/each}}
+</p>
