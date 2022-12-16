@@ -1,8 +1,10 @@
+import '~node_modules/modern-normalize/modern-normalize.css';
 import './css/styles.css';
 import countryCard from './templates/countryTemplate.hbs';
 import countryListMarkup from './templates/countryListMarkup.hbs';
 import API from './js/fetchCountries';
 import Notiflix from 'notiflix';
+import debounce from 'lodash.debounce';
 
 
 const DEBOUNCE_DELAY = 300;
@@ -12,7 +14,7 @@ const countryList = document.querySelector('.country-list')
 
 let searchCountryName = ''
 
-inputField.addEventListener('input', onSearch)
+inputField.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY))
 
 
 
@@ -61,7 +63,7 @@ function renderCountryCard(country) {
 }
 
 function renderCountryList(country) {
-    const renderList = country.map((c) => [c.name.official, c.flags.png])
+    const renderList = country.map((c) => [c.name.official, c.flags.svg])
 console.log(renderList)
     const markup = countryListMarkup(renderList);
     countryList.innerHTML = markup;
